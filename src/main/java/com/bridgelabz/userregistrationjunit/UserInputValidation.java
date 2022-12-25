@@ -1,6 +1,6 @@
 package com.bridgelabz.userregistrationjunit;
 /*
- * ProblemStatement : UC 6 Rule2– Should have at least 1 Upper Case 
+ * ProblemStatement : UC 7 Rule3– Should have at least 1 Numeric Number in password
  * - NOTE – All rules must be passed
  */
 import java.util.regex.Matcher;
