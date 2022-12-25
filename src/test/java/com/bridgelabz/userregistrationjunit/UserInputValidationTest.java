@@ -1,7 +1,7 @@
 package com.bridgelabz.userregistrationjunit;
 /*
- * ProblemStatement : UC 5 As a User need to follow pre-defined Password rules.
-Rule1 – minimum 8 Characters - NOTE – All rules must be passed
+ * ProblemStatement : UC 6 Rule2– Should have at least 1 Upper Case 
+ * - NOTE – All rules must be passed
  */
 import static org.junit.Assert.*;
 import org.junit.After;
@@ -98,6 +98,16 @@ public class UserInputValidationTest {
 	  @Test
 	  public void testPasswordDoesntContainEightCharacters_thenSad() {
 	    assertFalse(input.isValidPassword("hfhdj"));
+	  }
+	  
+	  @Test
+	  public void testPasswordContainsAtLeastOneUpperCaseCharacter_thenHappy() {
+	    assertTrue(input.isValidPassword("jfghiKyv"));
+	  }
+
+	  @Test
+	  public void testPasswordDoesntContainUpperCaseCharacter_thenSad() {
+	    assertFalse(input.isValidPassword("jfghikyv"));
 	  }
 
 	@After
