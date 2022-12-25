@@ -1,7 +1,7 @@
 package com.bridgelabz.userregistrationjunit;
 /*
- * Problem Statement- UC 1 As a User need to enter a valid First Name
-- First name starts with Cap and has minimum 3 characters
+ * Problem Statement- UC 2 As a User need to enter a valid Last Name
+- Last name starts with Cap and has minimum 3 characters
  */
 import static org.junit.Assert.*;
 import org.junit.After;
@@ -25,6 +25,7 @@ public class UserInputValidationTest {
 		System.out.println("Before Class");
 		input = new UserInputValidation(); // initialize object.
 	}
+
 	/*
 	 * Before and After method run for each test cases.
 	 */
@@ -42,6 +43,15 @@ public class UserInputValidationTest {
 		System.out.println("Second");
 		assertTrue(input.isValidFirstName("pallavi"));
 	}
+	@Test
+	public void testLastNameStartsWithCapitalLetterAndHasWithMinimumThreeCharacters_thenHappy() {
+		assertTrue(input.isValidLastName("Punewar"));
+	}
+
+	@Test
+	public void testLastNameDoesntStartWithCapitalLetterAndDontHaveMinimumThreeCharacters_thenSad() {
+		assertFalse(input.isValidLastName("punewar"));
+	}
 	@After
 	public void after() {
 		System.out.println("After");
@@ -51,5 +61,4 @@ public class UserInputValidationTest {
 		System.out.println("After Class");
 		input = new UserInputValidation(); // initialize object.
 	}
-
 }
