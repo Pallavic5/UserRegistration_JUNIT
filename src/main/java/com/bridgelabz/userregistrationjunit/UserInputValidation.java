@@ -1,23 +1,36 @@
 package com.bridgelabz.userregistrationjunit;
 /*
- * Problem Statement- UC 2 As a User need to enter a valid Last Name
-- Last name starts with Cap and has minimum 3 characters
+ * Problem Statement- UC 3 As a User need to enter a valid Email
+- E.g. abc.xyz@bl.co.in - Email has 3 mandatory parts (abc, bl & co) 
+and 2 optional (xyz & in) with precise @ and . positions
  */
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UserInputValidation {
+	static String regex;
+	static Pattern pattern;
+	static Matcher matcher;
+	
 	public boolean isValidFirstName(String firstName) {
-		String regex = "^[A-Z]{1}[a-z]{2,}$";
-		Pattern pattern = Pattern.compile(regex);
-		Matcher matcher = pattern.matcher(firstName);
+		regex = "^[A-Z]{1}[a-z]{2,}$";
+		pattern = Pattern.compile(regex);
+		matcher = pattern.matcher(firstName);
+		return matcher.matches();
+	}
+
+	public boolean isValidLastName(String lastName) {
+		regex = "^[A-Z]{1}[a-z]{2,}$";
+		pattern = Pattern.compile(regex);
+		matcher = pattern.matcher(lastName);
 		return matcher.matches();
 	}
 	
-	public boolean isValidLastName(String lastName) {
-		String regex = "^[A-Z]{1}[a-z]{2,}$";
-		Pattern pattern = Pattern.compile(regex);
-		Matcher matcher = pattern.matcher(lastName);
+	public boolean isValidEmail(String email) {
+		regex = "^[a-z]+[+-_.]*[a-z]*[@][a-z]+[.][a-z]{2,4}[.]*([a-z]{2,3})*$";
+		pattern = Pattern.compile(regex);
+		matcher = pattern.matcher(email);
 		return matcher.matches();
 	}
+
 }
