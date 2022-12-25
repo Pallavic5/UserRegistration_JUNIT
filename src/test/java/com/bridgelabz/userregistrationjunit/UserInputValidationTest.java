@@ -1,7 +1,7 @@
 package com.bridgelabz.userregistrationjunit;
 /*
- * Problem Statement: UC4 As a User need to follow pre-defined Mobile Format 
- * - E.g. 91 9919819801 - Country code follow by space and 10 digit number
+ * ProblemStatement : UC 5 As a User need to follow pre-defined Password rules.
+Rule1 – minimum 8 Characters - NOTE – All rules must be passed
  */
 import static org.junit.Assert.*;
 import org.junit.After;
@@ -15,6 +15,7 @@ public class UserInputValidationTest {
 	 * declare the class object static
 	 */
 	static UserInputValidation input = null;
+
 	/*
 	 * In the BeforeClass and AfterClass we can initialize the class object, this
 	 * both classes are only called once and there method should be static.
@@ -24,6 +25,7 @@ public class UserInputValidationTest {
 		System.out.println("Before Class");
 		input = new UserInputValidation(); // initialize object.
 	}
+
 	/*
 	 * Before and After method run for each test cases.
 	 */
@@ -31,6 +33,7 @@ public class UserInputValidationTest {
 	public void before() {
 		System.out.println("Before");
 	}
+
 	/*
 	 * FirstName Happy and Sad TestCase
 	 */
@@ -39,11 +42,13 @@ public class UserInputValidationTest {
 		System.out.println("First");
 		assertTrue(input.isValidFirstName("Pallavi"));
 	}
+
 	@Test
 	public void testFirstNameDoesntStartWithCapitalLetterAndDontHaveMinimumThreeCharacters_thenSad() {
 		System.out.println("Second");
 		assertTrue(input.isValidFirstName("pallavi"));
 	}
+
 	/*
 	 * LastName Happy and Sad TestCase
 	 */
@@ -51,10 +56,12 @@ public class UserInputValidationTest {
 	public void testLastNameStartsWithCapitalLetterAndHasWithMinimumThreeCharacters_thenHappy() {
 		assertTrue(input.isValidLastName("Punewar"));
 	}
+
 	@Test
 	public void testLastNameDoesntStartWithCapitalLetterAndDontHaveMinimumThreeCharacters_thenSad() {
 		assertFalse(input.isValidLastName("punewar"));
 	}
+
 	/*
 	 * Email Happy and Sad TestCase
 	 */
@@ -62,20 +69,37 @@ public class UserInputValidationTest {
 	public void testEmailContainsRequiredCharacter_thenHappy() {
 		assertTrue(input.isValidEmail("abc.xyz@bl.co.in"));
 	}
+
 	@Test
 	public void testEmailDoestContainRequiredCharacter_thenSad() {
 		assertFalse(input.isValidEmail("Abc.@bl.co.src.in"));
 	}
-	
+
+	/*
+	 * Mobile Number happy and sad TestCases
+	 */
 	@Test
-	  public void testPhoneNumContainsCountryCodeAndSpace_thenHappy() {
-	    assertTrue(input.isValidMobileNumber("91 9919819801"));
+	public void testPhoneNumContainsCountryCodeAndSpace_thenHappy() {
+		assertTrue(input.isValidMobileNumber("91 9919819801"));
+	}
+
+	@Test
+	public void testPhoneNumDoesntContainCountryCodeAndSpace_thenSad() {
+		assertFalse(input.isValidMobileNumber("991981980"));
+	}
+		/*
+		 * Password happy and sad TestCases
+		 */
+	 @Test
+	  public void testPasswordAtLeastEightCharacters_thenHappy() {
+	    assertTrue(input.isValidPassword("jfghikyv"));
 	  }
 
 	  @Test
-	  public void testPhoneNumDoesntContainCountryCodeAndSpace_thenSad() {
-	    assertFalse(input.isValidMobileNumber("991981980"));
+	  public void testPasswordDoesntContainEightCharacters_thenSad() {
+	    assertFalse(input.isValidPassword("hfhdj"));
 	  }
+
 	@After
 	public void after() {
 		System.out.println("After");
