@@ -1,5 +1,4 @@
 package com.bridgelabz.userregistrationjunit;
-
 /*
  * ProblemStatement : UC 7 Rule3– Should have at least 1 Numeric Number in password
  * - NOTE – All rules must be passed
