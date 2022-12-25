@@ -1,8 +1,7 @@
 package com.bridgelabz.userregistrationjunit;
 /*
- * Problem Statement- UC 3 As a User need to enter a valid Email
-- E.g. abc.xyz@bl.co.in - Email has 3 mandatory parts (abc, bl & co) 
-and 2 optional (xyz & in) with precise @ and . positions
+ * Problem Statement: UC4 As a User need to follow pre-defined Mobile Format 
+ * - E.g. 91 9919819801 - Country code follow by space and 10 digit number
  */
 import static org.junit.Assert.*;
 import org.junit.After;
@@ -67,6 +66,16 @@ public class UserInputValidationTest {
 	public void testEmailDoestContainRequiredCharacter_thenSad() {
 		assertFalse(input.isValidEmail("Abc.@bl.co.src.in"));
 	}
+	
+	@Test
+	  public void testPhoneNumContainsCountryCodeAndSpace_thenHappy() {
+	    assertTrue(input.isValidMobileNumber("91 9919819801"));
+	  }
+
+	  @Test
+	  public void testPhoneNumDoesntContainCountryCodeAndSpace_thenSad() {
+	    assertFalse(input.isValidMobileNumber("991981980"));
+	  }
 	@After
 	public void after() {
 		System.out.println("After");
