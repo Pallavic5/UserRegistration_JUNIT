@@ -1,7 +1,7 @@
 package com.bridgelabz.userregistrationjunit;
 /*
- * Problem Statement: UC4 As a User need to follow pre-defined Mobile Format 
- * - E.g. 91 9919819801 - Country code follow by space and 10 digit number
+ * ProblemStatement : UC 5 As a User need to follow pre-defined Password rules.
+Rule1 – minimum 8 Characters - NOTE – All rules must be passed
  */
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -38,6 +38,13 @@ public class UserInputValidation {
 		matcher = pattern.matcher(mobileNumber);
 		return matcher.matches();
 	}
+	
+	public boolean isValidPassword(String password) {
+	    regex = "^\\w{8,}$";			//\w \Any word character, short for [a-zA-Z_0-9]
+	    pattern = Pattern.compile(regex);
+		matcher = pattern.matcher(password);
+		return matcher.matches();
+	  }
 
 	
 }
