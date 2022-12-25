@@ -1,6 +1,7 @@
 package com.bridgelabz.userregistrationjunit;
+
 /*
- * ProblemStatement : UC 6 Rule2– Should have at least 1 Upper Case 
+ * ProblemStatement : UC 7 Rule3– Should have at least 1 Numeric Number in password
  * - NOTE – All rules must be passed
  */
 import static org.junit.Assert.*;
@@ -87,28 +88,39 @@ public class UserInputValidationTest {
 	public void testPhoneNumDoesntContainCountryCodeAndSpace_thenSad() {
 		assertFalse(input.isValidMobileNumber("991981980"));
 	}
-		/*
-		 * Password happy and sad TestCases
-		 */
-	 @Test
-	  public void testPasswordAtLeastEightCharacters_thenHappy() {
-	    assertTrue(input.isValidPassword("jfghikyv"));
-	  }
 
-	  @Test
-	  public void testPasswordDoesntContainEightCharacters_thenSad() {
-	    assertFalse(input.isValidPassword("hfhdj"));
-	  }
-	  
-	  @Test
-	  public void testPasswordContainsAtLeastOneUpperCaseCharacter_thenHappy() {
-	    assertTrue(input.isValidPassword("jfghiKyv"));
-	  }
+	/*
+	 * Password happy and sad TestCases
+	 */
+	@Test
+	public void testPasswordAtLeastEightCharacters_thenHappy() {
+		assertTrue(input.isValidPassword("jfghikyv"));
+	}
 
-	  @Test
-	  public void testPasswordDoesntContainUpperCaseCharacter_thenSad() {
-	    assertFalse(input.isValidPassword("jfghikyv"));
-	  }
+	@Test
+	public void testPasswordDoesntContainEightCharacters_thenSad() {
+		assertFalse(input.isValidPassword("hfhdj"));
+	}
+
+	@Test
+	public void testPasswordContainsAtLeastOneUpperCaseCharacter_thenHappy() {
+		assertTrue(input.isValidPassword("jfghiKyv"));
+	}
+
+	@Test
+	public void testPasswordDoesntContainUpperCaseCharacter_thenSad() {
+		assertFalse(input.isValidPassword("jfghikyv"));
+	}
+
+	@Test
+	public void testPasswordContainsAtLeastOneNumericNumber_thenHappy() {
+		assertTrue(input.isValidPassword("jfghiky5"));
+	}
+
+	@Test
+	public void testPasswordDoestContainNumber_thenSad() {
+		assertFalse(input.isValidPassword("jfghiKyv"));
+	}
 
 	@After
 	public void after() {
