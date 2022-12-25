@@ -1,8 +1,7 @@
 package com.bridgelabz.userregistrationjunit;
 /*
- * Problem Statement- UC 3 As a User need to enter a valid Email
-- E.g. abc.xyz@bl.co.in - Email has 3 mandatory parts (abc, bl & co) 
-and 2 optional (xyz & in) with precise @ and . positions
+ * Problem Statement: UC4 As a User need to follow pre-defined Mobile Format 
+ * - E.g. 91 9919819801 - Country code follow by space and 10 digit number
  */
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -11,7 +10,7 @@ public class UserInputValidation {
 	static String regex;
 	static Pattern pattern;
 	static Matcher matcher;
-	
+
 	public boolean isValidFirstName(String firstName) {
 		regex = "^[A-Z]{1}[a-z]{2,}$";
 		pattern = Pattern.compile(regex);
@@ -25,7 +24,7 @@ public class UserInputValidation {
 		matcher = pattern.matcher(lastName);
 		return matcher.matches();
 	}
-	
+
 	public boolean isValidEmail(String email) {
 		regex = "^[a-z]+[+-_.]*[a-z]*[@][a-z]+[.][a-z]{2,4}[.]*([a-z]{2,3})*$";
 		pattern = Pattern.compile(regex);
@@ -33,4 +32,12 @@ public class UserInputValidation {
 		return matcher.matches();
 	}
 
+	public boolean isValidMobileNumber(String mobileNumber) {
+		regex = "^[0-9]{2} [0-9]{10}$";
+		pattern = Pattern.compile(regex);
+		matcher = pattern.matcher(mobileNumber);
+		return matcher.matches();
+	}
+
+	
 }
