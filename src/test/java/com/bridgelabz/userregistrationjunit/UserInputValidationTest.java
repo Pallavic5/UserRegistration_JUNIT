@@ -102,16 +102,6 @@ public class UserInputValidationTest {
 	}
 
 	@Test
-	public void testPasswordContainsAtLeastOneUpperCaseCharacter_thenHappy() {
-		assertTrue(input.isValidPassword("jfghiKyv"));
-	}
-
-	@Test
-	public void testPasswordDoesntContainUpperCaseCharacter_thenSad() {
-		assertFalse(input.isValidPassword("jfghikyv"));
-	}
-
-	@Test
 	public void testPasswordContainsAtLeastOneNumericNumber_thenHappy() {
 		assertTrue(input.isValidPassword("jfghiky5"));
 	}
