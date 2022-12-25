@@ -1,7 +1,7 @@
 package com.bridgelabz.userregistrationjunit;
 /*
- * ProblemStatement : UC 5 As a User need to follow pre-defined Password rules.
-Rule1 – minimum 8 Characters - NOTE – All rules must be passed
+ * ProblemStatement : UC 6 Rule2– Should have at least 1 Upper Case 
+ * - NOTE – All rules must be passed
  */
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -40,7 +40,7 @@ public class UserInputValidation {
 	}
 	
 	public boolean isValidPassword(String password) {
-	    regex = "^\\w{8,}$";			//\w \Any word character, short for [a-zA-Z_0-9]
+		regex = "^[a-z0-9A-Z]{8,}$";				//\w \Any word character, short for [a-zA-Z_0-9]
 	    pattern = Pattern.compile(regex);
 		matcher = pattern.matcher(password);
 		return matcher.matches();
