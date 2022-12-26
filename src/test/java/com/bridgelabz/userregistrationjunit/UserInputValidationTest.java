@@ -1,7 +1,7 @@
 package com.bridgelabz.userregistrationjunit;
 /*
- * ProblemStatement : UC 8 Rule4- Has exactly one special character.
- * - NOTE – All rules must be passed
+ * ProblemStatement : UC 9 Should clear all Email samples provided separately.
+ * 
  */
 import static org.junit.Assert.*;
 import org.junit.After;
@@ -100,16 +100,69 @@ public class UserInputValidationTest {
 	public void testPasswordDoesntContainEightCharacters_thenSad() {
 		assertFalse(input.isValidPassword("hfhdj"));
 	}
+	
+	@Test
+	public void testPasswordAtLeastOneUpperCase_thenHappy() {
+		assertTrue(input.isValidPassword("jfghiKyv"));
+	}
+
+	@Test
+	public void testPasswordDoesntContainUpperCase_thenSad() {
+		assertFalse(input.isValidPassword("jfghiKyv"));
+	}
 
 	@Test
 	public void testPasswordContainsAtLeastOneNumericNumber_thenHappy() {
-		assertTrue(input.isValidPassword("jfgP8yh@"));
+		assertTrue(input.isValidPassword("jfgP8yhi"));
 	}
 
 	@Test
-	public void testPasswordDoestContainNumber_thenSad() {
+	public void testPasswordDoesntContainNumber_thenSad() {
 		assertFalse(input.isValidPassword("jfghikyv"));
 	}
+	
+	@Test
+	public void testPasswordHasExactlySpecialCharacters_thenHappy() {
+		assertTrue(input.isValidPassword("jfgjhyh@"));
+	}
+
+	@Test
+	public void testPasswordDoesntContainSpecialCharacters_thenSad() {
+		assertFalse(input.isValidPassword("jfghikyv"));
+	}
+	
+	 @Test
+	  public void testMatchAllEmails_thenHappy() {
+	    //valid emails
+	    assertTrue(input.isValidEmail("abc@yahoo.com"));
+	    assertTrue(input.isValidEmail("abc-100@yahoo.com"));
+	    assertTrue(input.isValidEmail("abc.100@yahoo.com"));
+	    assertTrue(input.isValidEmail("abc111@abc.com"));
+	    assertTrue(input.isValidEmail("abc-100@abc.net"));
+	    assertTrue(input.isValidEmail("abc.100@abc.com.au"));
+	    assertTrue(input.isValidEmail("abc@1.com"));
+	    assertTrue(input.isValidEmail("abc@gmail.com.com"));
+	    assertTrue(input.isValidEmail("abc+100@gmail.com"));
+	  }
+
+	  @Test
+	  public void testDontMatchTheseEmails_thenSad() {
+	    //invalid emails
+	    assertFalse(input.isValidEmail("abc"));
+	    assertFalse(input.isValidEmail("abc@.com.my"));
+	    assertFalse(input.isValidEmail("abc123@gmail.a"));
+	    assertFalse(input.isValidEmail("abc123@.com"));
+	    assertFalse(input.isValidEmail("abc123@.com.com"));
+	    assertFalse(input.isValidEmail(".abc@abc.com"));
+	    assertFalse(input.isValidEmail("abc()*@gmail.com"));
+	    assertFalse(input.isValidEmail("abc@%*.com"));
+	    assertFalse(input.isValidEmail("abc..2002@gmail.com"));
+	    assertFalse(input.isValidEmail("abc.@gmail.com"));
+	    assertFalse(input.isValidEmail("abc@abc@gmail.com"));
+	    assertFalse(input.isValidEmail("abc@gmail.com.1a"));
+	    assertFalse(input.isValidEmail("abc@gmail.com.aa.au"));
+	  }
+
 
 	@After
 	public void after() {

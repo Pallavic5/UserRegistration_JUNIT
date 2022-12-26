@@ -1,7 +1,7 @@
 package com.bridgelabz.userregistrationjunit;
 /*
- * ProblemStatement : UC 8 Rule4- Has exactly one special character.
- * - NOTE – All rules must be passed
+ * ProblemStatement : UC 9 Should clear all Email samples provided separately.
+ * 
  */
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
