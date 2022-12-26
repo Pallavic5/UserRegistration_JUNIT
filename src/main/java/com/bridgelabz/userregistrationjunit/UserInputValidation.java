@@ -1,6 +1,6 @@
 package com.bridgelabz.userregistrationjunit;
 /*
- * ProblemStatement : UC 7 Rule3– Should have at least 1 Numeric Number in password
+ * ProblemStatement : UC 8 Rule4- Has exactly one special character.
  * - NOTE – All rules must be passed
  */
 import java.util.regex.Matcher;
@@ -40,7 +40,7 @@ public class UserInputValidation {
 	}
 	
 	public boolean isValidPassword(String password) {
-		regex = "^[a-z0-9A-Z]{8,}$";				//\w \Any word character, short for [a-zA-Z_0-9]
+		regex = "^[a-z0-9A-Z!@#$%^&*]{8,}$";				//\w \Any word character, short for [a-zA-Z_0-9]
 	    pattern = Pattern.compile(regex);
 		matcher = pattern.matcher(password);
 		return matcher.matches();
