@@ -1,6 +1,6 @@
 package com.bridgelabz.userregistrationjunit;
 /*
- * ProblemStatement : UC 7 Rule3– Should have at least 1 Numeric Number in password
+ * ProblemStatement : UC 8 Rule4- Has exactly one special character.
  * - NOTE – All rules must be passed
  */
 import static org.junit.Assert.*;
@@ -103,12 +103,12 @@ public class UserInputValidationTest {
 
 	@Test
 	public void testPasswordContainsAtLeastOneNumericNumber_thenHappy() {
-		assertTrue(input.isValidPassword("jfghiky5"));
+		assertTrue(input.isValidPassword("jfgP8yh@"));
 	}
 
 	@Test
 	public void testPasswordDoestContainNumber_thenSad() {
-		assertFalse(input.isValidPassword("jfghiKyv"));
+		assertFalse(input.isValidPassword("jfghikyv"));
 	}
 
 	@After
